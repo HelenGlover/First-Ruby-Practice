@@ -1,0 +1,51 @@
+#/usr/bin/env ruby
+
+#array of responses for the user
+chatbot_responses = [ #array of responses for the user
+  "Tell me more...",
+  "You don't say!",
+  "Mmm-hm.",
+  "Yes?",
+  "OK",
+  "My word!",
+  "Really?"  
+]
+
+#simple top decoration 
+print "=" * 35
+print "| BOB, the Chatbot |"
+print "=" * 35
+
+#Greetings from chatbot
+print "\nHi friendly user! My name is Bob, the mini chatbot and I LOVE to talk! I can have a conversation for hours and hours \n\n"
+puts "What is your name?"
+name = gets.chomp
+
+# If user wants to play
+print "Hello #{name}! Would you like to chat? Type Y or N: "
+response = gets.chomp
+x = "Y" 
+y = "N"
+
+#if statement that ends chat at 5 rounds 
+if response == x
+  Num_rounds = 6
+  print "What is on your mind? (Type Stop to end chat): "
+  
+  1.upto(Num_rounds) do |response2| # only go "up to" 5
+    response2 = gets.chomp
+    
+    if response2 == "Stop"  # if user wants to end chat
+      puts "Okay, it was nice talking to you :)"
+      exit!
+    else 
+      print chatbot_responses.sample + "\n" # puts user's response on second line
+    end
+  end
+  puts "Sorry, I have to go... I am feeling a little tired. Goodbye!"
+
+elsif response == y # if user does not want to play at all
+  puts "Okay *sniff* have a nice day."
+  exit!
+end
+
